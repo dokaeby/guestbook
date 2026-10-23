@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ee">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+  <title>작은 방명록 · 다녀간 마음들</title>
+</head>
+<body>
+  <header class="top"><a href="/" class="brand"><span class="brand-mark">작</span> 작은 방명록</a><span class="top-note">서로의 하루에, 한 줄</span></header>
+  <main>
+    <section class="intro"><span class="eyebrow">A LITTLE NOTE, A WARM HELLO</span><h1>다녀간 자리에<br>마음을 남겨요<span class="dot">.</span></h1><p>짧은 인사도, 오늘의 작은 이야기도 좋아요.<br>이곳에 당신의 한 줄을 보태 주세요.</p><span class="intro-stamp">HELLO<br><b>안녕!</b></span></section>
+    <div class="workspace">
+      <section class="compose" aria-labelledby="write-title"><span class="section-number">01 / WRITE</span><h2 id="write-title">반가운 인사 남기기</h2><form id="entry-form"><label for="name">이름 <span>20자 이내</span></label><input id="name" name="name" maxlength="20" placeholder="어떤 이름으로 남길까요?" required autocomplete="nickname"><label for="message">이야기</label><textarea id="message" name="message" maxlength="500" rows="6" placeholder="오늘 이곳에 다녀간 당신의 이야기를 들려주세요." required></textarea><div class="counter"><span id="char-count">0</span> / 500</div><button id="submit-button" type="submit">마음 남기기 <span>↗</span></button><p class="form-note">개인정보는 적지 말아 주세요.<br>작성한 브라우저에서 내 글을 삭제할 수 있어요.</p></form></section>
+      <section class="entries" aria-labelledby="entries-title"><div class="list-heading"><div><span class="section-number">02 / READ</span><h2 id="entries-title">차곡차곡 쌓인 마음</h2></div><span id="total" class="badge">0개의 인사</span></div><p id="status" role="status" aria-live="polite"></p><div id="entry-list"></div><nav class="pagination" aria-label="방명록 페이지"><button id="previous" type="button" disabled>← 이전</button><span id="page-label">1 / 1</span><button id="next" type="button" disabled>다음 →</button></nav></section>
+    </div>
+  </main>
+  <footer><span>작은 인사가 모여, 따뜻한 공간이 됩니다.</span><span>Python + SQLite · 가벼운 방명록</span></footer>
+</body>
+</html>
