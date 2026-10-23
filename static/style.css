@@ -15,10 +15,14 @@
   --radius-card: 16px;
   --radius-control: 12px;
   --shadow: 0 8px 28px rgb(32 53 44 / 4%);
+  --backdrop-opacity: .12;
 }
 
 * { box-sizing: border-box; }
 body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
   margin: 0;
   background: var(--paper);
   color: var(--ink);
@@ -26,6 +30,19 @@ body {
   font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+}
+/* 배경 이미지만 투명하게 처리해 글자와 입력창의 선명도를 유지합니다. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("/static/images/garden.jpg");
+  background-size: cover;
+  background-position: center 55%;
+  background-repeat: no-repeat;
+  opacity: var(--backdrop-opacity);
 }
 button, input, textarea { font: inherit; }
 button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
@@ -142,6 +159,7 @@ footer a:hover { color: var(--green); text-decoration: underline; }
   .list-heading { align-items: start; flex-wrap: wrap; gap: 10px; }
 }
 @media (max-width: 760px) {
+  :root { --backdrop-opacity: .09; }
   .top, main, footer { width: calc(100% - 40px); }
   .top { min-height: 70px; }
   .brand { font-size: 17px; }

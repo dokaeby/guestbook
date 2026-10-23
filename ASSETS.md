@@ -10,6 +10,10 @@
 
 합계 296,490 bytes(약 290 KiB). 빈티지한 질감과 갈색을 줄이고 민트·연두·레몬색, 아침 햇빛과 넉넉한 여백으로 편안하고 상큼한 분위기를 만들었습니다. 중요한 상단 이미지는 우선 로딩하고, 하단 이미지는 지연 로딩합니다. 꽃 이미지를 여러 위치에서 재사용하므로 브라우저 캐시를 이용할 수 있습니다. 기존 색상·서체·16px 본문·16px 카드 모서리를 유지했습니다. 장식 이미지에는 빈 alt를, 정원 이미지에는 대체 설명을 제공합니다.
 
+## 전체 화면 배경
+
+전체 화면의 배경에도 `garden.jpg`를 재사용합니다. 고정된 배경 레이어에 PC 12%, 모바일 9% 불투명도로 적용해 기존 이미지와 조화를 맞췄습니다. 입력창·본문 카드·헤더에는 투명도를 적용하지 않습니다. 새 이미지 파일이나 추가 다운로드는 필요하지 않습니다.
+
 ## 생성 프롬프트
 
 - Garden: Landscape 3:2 comfortable yet fresh Scandinavian watercolor/gouache garden. Mint-green mailbox and cream envelope, simple bench, delicate white daisies and pale lemon-yellow flowers, lime-green lemon tree, distant hills and a tiny bird. Airy ivory sky, gentle morning light, open upper third. No antique paper, sepia, brown, heavy grain, text, people, logos or watermark.
