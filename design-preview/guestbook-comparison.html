@@ -1,0 +1,174 @@
+<div id="guestbook-design-comparison" lang="ko">
+  <style>
+    #guestbook-design-comparison { --gb-paper:#f7f8f5; --gb-white:#fff; --gb-ink:#20352c; --gb-muted:#647267; --gb-green:#365c48; --gb-tint:#edf3ec; --gb-line:#e1e8df; color-scheme:light; font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif; }
+    #guestbook-design-comparison * { box-sizing:border-box; }
+    #guestbook-design-comparison .comparison-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px; align-items:start; }
+    #guestbook-design-comparison .comparison-label { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:4px 0 14px; color:var(--gb-ink); font-size:15px; font-weight:600; }
+    #guestbook-design-comparison .comparison-label span { font-size:12px; font-weight:400; color:var(--gb-muted); }
+    #guestbook-design-comparison .screen { min-width:0; overflow:hidden; border:1px solid var(--gb-line); border-radius:18px; }
+    #guestbook-design-comparison button, #guestbook-design-comparison input, #guestbook-design-comparison textarea { font-family:inherit; }
+    #guestbook-design-comparison button { cursor:default; }
+    #guestbook-design-comparison button:disabled { opacity:.45; }
+    #guestbook-design-comparison .old { background:#f6f4ee; color:#283d35; font-size:15px; }
+    #guestbook-design-comparison .old .old-top, #guestbook-design-comparison .old .old-main, #guestbook-design-comparison .old .old-footer { margin:0 6%; }
+    #guestbook-design-comparison .old-top { height:72px; display:flex; align-items:center; border-bottom:1px solid #dedfd4; }
+    #guestbook-design-comparison .old-brand { display:flex; align-items:center; gap:11px; font-weight:750; letter-spacing:-.5px; }
+    #guestbook-design-comparison .old-mark { background:#365c48; color:#f6f4ee; padding:7px 9px; border-radius:50%; }
+    #guestbook-design-comparison .old-intro { position:relative; padding:42px 0 32px; }
+    #guestbook-design-comparison .old-eyebrow { font-size:10px; letter-spacing:2px; font-weight:700; color:#365c48; }
+    #guestbook-design-comparison .old h1 { font-size:35px; line-height:1.4; letter-spacing:-2.5px; margin:19px 0; font-weight:700; }
+    #guestbook-design-comparison .old-dot { color:#c78452; }
+    #guestbook-design-comparison .old-intro p { font-size:12px; line-height:1.9; color:#777e72; }
+    #guestbook-design-comparison .old-stamp { position:absolute; right:0; top:68px; width:82px; height:82px; border:1px solid #b5bca8; border-radius:50%; padding-top:15px; text-align:center; transform:rotate(12deg); color:#78876a; font-size:9px; letter-spacing:3px; }
+    #guestbook-design-comparison .old-stamp b { font-size:19px; line-height:1.6; letter-spacing:-1px; }
+    #guestbook-design-comparison .old-compose { padding:24px; background:#eaece1; border:1px solid #dce0d0; border-radius:6px; }
+    #guestbook-design-comparison .old-section-number { font-size:9px; font-weight:700; letter-spacing:2px; color:#365c48; }
+    #guestbook-design-comparison .old h2 { font-size:20px; line-height:1.4; letter-spacing:-.8px; margin:13px 0 27px; font-weight:700; }
+    #guestbook-design-comparison .old label { display:flex; justify-content:space-between; font-size:12px; font-weight:650; margin:20px 0 9px; }
+    #guestbook-design-comparison .old label span { font-size:10px; font-weight:400; color:#777e72; }
+    #guestbook-design-comparison .old input, #guestbook-design-comparison .old textarea { width:100%; padding:13px; font-size:13px; color:#283d35; border:1px solid #d8ddcd; background:#fcfcf7; border-radius:4px; }
+    #guestbook-design-comparison .old textarea { min-height:150px; resize:vertical; line-height:1.8; }
+    #guestbook-design-comparison .old-counter { text-align:right; font-size:10px; color:#777e72; margin:7px 0 19px; }
+    #guestbook-design-comparison .old-submit { width:100%; display:flex; justify-content:space-between; padding:14px 17px; border:0; border-radius:4px; background:#365c48; color:#fff; font-size:13px; }
+    #guestbook-design-comparison .old-note { font-size:10px; line-height:1.9; color:#66715e; margin:17px 0 0; }
+    #guestbook-design-comparison .old-entries { padding:38px 0 40px; }
+    #guestbook-design-comparison .old-list-heading { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    #guestbook-design-comparison .old-list-heading h2 { margin-bottom:15px; }
+    #guestbook-design-comparison .old-badge { background:#e9ecdf; color:#365c48; padding:7px 11px; border-radius:20px; font-size:9px; white-space:nowrap; }
+    #guestbook-design-comparison .old-status { min-height:20px; margin:4px 0 16px; }
+    #guestbook-design-comparison .old-empty { padding:60px 15px; border:1px dashed #cbd1be; border-radius:5px; text-align:center; color:#777e72; line-height:2; font-size:13px; }
+    #guestbook-design-comparison .old-pagination { display:flex; align-items:center; justify-content:space-between; border-top:1px solid #dedfd4; padding-top:20px; margin-top:20px; font-size:11px; color:#777e72; }
+    #guestbook-design-comparison .old-pagination button { border:1px solid #dedfd4; border-radius:4px; background:transparent; color:#283d35; padding:8px 13px; font-size:11px; }
+    #guestbook-design-comparison .old-footer { padding:24px 0 35px; border-top:1px solid #dedfd4; display:flex; flex-direction:column; gap:15px; color:#777e72; font-size:10px; }
+    #guestbook-design-comparison .new { background:var(--gb-paper); color:var(--gb-ink); font-size:16px; }
+    #guestbook-design-comparison .new-top { display:flex; align-items:center; justify-content:space-between; padding:25px 28px; border-bottom:1px solid var(--gb-line); background:var(--gb-white); }
+    #guestbook-design-comparison .new-brand { font-size:17px; font-weight:750; letter-spacing:-.6px; display:flex; align-items:center; gap:10px; }
+    #guestbook-design-comparison .new-mark { display:grid; place-items:center; width:30px; height:30px; border-radius:50%; background:var(--gb-green); color:var(--gb-white); font-size:14px; }
+    #guestbook-design-comparison .new-top-note { font-size:11px; color:var(--gb-muted); }
+    #guestbook-design-comparison .new-main { padding:35px 28px 38px; }
+    #guestbook-design-comparison .new-eyebrow { display:inline-block; padding:6px 10px; background:var(--gb-tint); border-radius:30px; color:var(--gb-green); font-size:11px; font-weight:600; letter-spacing:.6px; }
+    #guestbook-design-comparison .new h1 { font-size:34px; font-weight:750; line-height:1.35; letter-spacing:-1.7px; margin:16px 0 12px; text-wrap:pretty; }
+    #guestbook-design-comparison .new-intro p { color:var(--gb-muted); font-size:14px; line-height:1.8; margin:0; text-wrap:pretty; }
+    #guestbook-design-comparison .new-compose { background:var(--gb-white); padding:26px; margin-top:28px; border:1px solid var(--gb-line); border-radius:16px; box-shadow:0 8px 24px rgb(32 53 44 / 4%); }
+    #guestbook-design-comparison .new-compose-heading { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+    #guestbook-design-comparison .new-section-number { color:var(--gb-green); font-size:12px; font-weight:600; }
+    #guestbook-design-comparison .new h2 { font-size:19px; font-weight:700; line-height:1.5; letter-spacing:-.7px; margin:0; }
+    #guestbook-design-comparison .new-compose-description { color:var(--gb-muted); font-size:12px; line-height:1.7; margin:5px 0 22px; }
+    #guestbook-design-comparison .new label { display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin:20px 0 9px; font-size:14px; font-weight:600; }
+    #guestbook-design-comparison .new label span { font-size:11px; color:var(--gb-muted); font-weight:400; }
+    #guestbook-design-comparison .new input, #guestbook-design-comparison .new textarea { width:100%; border:1px solid var(--gb-line); border-radius:12px; background:var(--gb-paper); padding:14px; color:var(--gb-ink); font-size:16px; line-height:1.7; transition:border-color .16s,background .16s; }
+    #guestbook-design-comparison .new textarea { min-height:154px; resize:vertical; }
+    #guestbook-design-comparison .new input::placeholder, #guestbook-design-comparison .new textarea::placeholder { color:var(--gb-muted); font-size:13px; }
+    #guestbook-design-comparison .new input:focus, #guestbook-design-comparison .new textarea:focus { background:var(--gb-white); border-color:var(--gb-green); }
+    #guestbook-design-comparison .new-counter { text-align:right; color:var(--gb-muted); margin:8px 0 18px; font-size:12px; font-variant-numeric:tabular-nums; }
+    #guestbook-design-comparison .new-submit { width:100%; min-height:50px; display:flex; justify-content:center; align-items:center; gap:14px; border:0; border-radius:12px; background:var(--gb-green); color:var(--gb-white); font-size:15px; font-weight:600; transition:filter .16s,transform .16s; }
+    #guestbook-design-comparison .new-submit:hover { filter:brightness(1.08); }
+    #guestbook-design-comparison .new-submit:active { transform:translateY(1px); }
+    #guestbook-design-comparison .new-note { margin:15px 0 0; text-align:center; color:var(--gb-muted); font-size:11px; line-height:1.8; }
+    #guestbook-design-comparison .new-entries { margin-top:32px; }
+    #guestbook-design-comparison .new-list-heading { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:16px; }
+    #guestbook-design-comparison .new-list-heading small { display:block; color:var(--gb-muted); font-size:12px; margin-top:5px; }
+    #guestbook-design-comparison .new-badge { padding:7px 10px; border-radius:30px; background:var(--gb-tint); color:var(--gb-green); font-size:12px; white-space:nowrap; }
+    #guestbook-design-comparison .new-empty { background:var(--gb-white); border:1px solid var(--gb-line); border-radius:16px; padding:38px 18px; text-align:center; }
+    #guestbook-design-comparison .new-empty strong { display:block; font-weight:600; font-size:15px; margin-bottom:8px; }
+    #guestbook-design-comparison .new-empty p { margin:0; color:var(--gb-muted); font-size:13px; line-height:1.8; text-wrap:pretty; }
+    #guestbook-design-comparison .new-pagination { display:flex; justify-content:space-between; align-items:center; padding-top:20px; color:var(--gb-muted); font-size:12px; }
+    #guestbook-design-comparison .new-pagination button { background:var(--gb-white); border:1px solid var(--gb-line); color:var(--gb-ink); border-radius:10px; padding:10px 14px; min-height:44px; font-size:12px; }
+    #guestbook-design-comparison .new-footer { border-top:1px solid var(--gb-line); padding:22px 28px; color:var(--gb-muted); font-size:11px; line-height:1.8; }
+    #guestbook-design-comparison .preview-message { color:var(--gb-muted); font-size:12px; line-height:1.7; margin:14px 0 0; }
+    #guestbook-design-comparison .preview-message:empty { display:none; }
+    @media (max-width:660px) { #guestbook-design-comparison .comparison-grid { grid-template-columns:1fr; gap:32px; } }
+    @media (max-width:380px) { #guestbook-design-comparison .new-main { padding:28px 18px; } #guestbook-design-comparison .new-top { padding:22px 18px; } #guestbook-design-comparison .new-top-note { display:none; } #guestbook-design-comparison .new-compose { padding:20px; } #guestbook-design-comparison .new h1 { font-size:30px; } #guestbook-design-comparison .old-stamp { display:none; } }
+    @media (prefers-reduced-motion:reduce) { #guestbook-design-comparison *, #guestbook-design-comparison *::before, #guestbook-design-comparison *::after { transition:none!important; } }
+  </style>
+  <div class="comparison-grid">
+    <section aria-label="이전 방명록 화면">
+      <div class="comparison-label">이전 화면 <span>기존 모바일 배치</span></div>
+      <div class="screen old">
+        <header class="old-top"><div class="old-brand"><span class="old-mark">작</span> 작은 방명록</div></header>
+        <div class="old-main">
+          <section class="old-intro">
+            <span class="old-eyebrow">A LITTLE NOTE, A WARM HELLO</span>
+            <h1>다녀간 자리에<br>마음을 남겨요<span class="old-dot">.</span></h1>
+            <p>짧은 인사도, 오늘의 작은 이야기도 좋아요.<br>이곳에 당신의 한 줄을 보태 주세요.</p>
+            <span class="old-stamp" aria-hidden="true">HELLO<br><b>안녕!</b></span>
+          </section>
+          <section class="old-compose">
+            <span class="old-section-number">01 / WRITE</span>
+            <h2>반가운 인사 남기기</h2>
+            <label for="gb-before-name">이름 <span>20자 이내</span></label>
+            <input id="gb-before-name" maxlength="20" placeholder="어떤 이름으로 남길까요?" autocomplete="off">
+            <label for="gb-before-message">이야기</label>
+            <textarea id="gb-before-message" maxlength="500" rows="6" placeholder="오늘 이곳에 다녀간 당신의 이야기를 들려주세요."></textarea>
+            <div class="old-counter"><span id="gb-before-count">0</span> / 500</div>
+            <button class="old-submit cursor-interaction" id="gb-before-submit" type="button">마음 남기기 <span aria-hidden="true">↗</span></button>
+            <p class="old-note">개인정보는 적지 말아 주세요.<br>작성한 브라우저에서 내 글을 삭제할 수 있어요.</p>
+            <p class="preview-message" id="gb-before-notice" role="status" aria-live="polite"></p>
+          </section>
+          <section class="old-entries">
+            <div class="old-list-heading"><div><span class="old-section-number">02 / READ</span><h2>차곡차곡 쌓인 마음</h2></div><span class="old-badge">0개의 인사</span></div>
+            <div class="old-status"></div>
+            <div class="old-empty">아직 남겨진 인사가 없어요. 첫 번째 마음을 남겨 주세요.</div>
+            <nav class="old-pagination" aria-label="이전 화면 페이지"><button type="button" disabled>← 이전</button><span>1 / 1</span><button type="button" disabled>다음 →</button></nav>
+          </section>
+        </div>
+        <footer class="old-footer"><span>작은 인사가 모여, 따뜻한 공간이 됩니다.</span><span>Python + SQLite · 가벼운 방명록</span></footer>
+      </div>
+    </section>
+    <section aria-label="화이트 세이지 방명록 개선 시안">
+      <div class="comparison-label">개선 시안 <span>화이트 · 세이지</span></div>
+      <div class="screen new" id="gb-new-design">
+        <header class="new-top"><div class="new-brand"><span class="new-mark">작</span> 작은 방명록</div><span class="new-top-note">서로의 하루에, 한 줄</span></header>
+        <div class="new-main">
+          <section class="new-intro">
+            <span class="new-eyebrow">A LITTLE NOTE, A WARM HELLO</span>
+            <h1>다녀간 자리에<br>마음을 남겨요.</h1>
+            <p>짧은 인사도, 오늘의 작은 이야기도 좋아요.<br>이곳에 당신의 한 줄을 보태 주세요.</p>
+          </section>
+          <section class="new-compose">
+            <div class="new-compose-heading"><span class="new-section-number">01</span><h2>반가운 인사 남기기</h2></div>
+            <p class="new-compose-description">당신의 한마디가 이곳을 따뜻하게 만들어요.</p>
+            <label for="gb-after-name">이름 <span>20자 이내</span></label>
+            <input id="gb-after-name" maxlength="20" placeholder="어떤 이름으로 남길까요?" autocomplete="off">
+            <label for="gb-after-message">이야기 <span>500자 이내</span></label>
+            <textarea id="gb-after-message" maxlength="500" rows="5" placeholder="오늘 이곳에 다녀간 당신의 이야기를 들려주세요."></textarea>
+            <div class="new-counter"><span id="gb-after-count">0</span> / 500</div>
+            <button class="new-submit cursor-interaction" id="gb-after-submit" type="button">마음 남기기 <span aria-hidden="true">↗</span></button>
+            <p class="new-note">개인정보는 적지 말아 주세요.<br>작성한 브라우저에서 내 글을 삭제할 수 있어요.</p>
+            <p class="preview-message" id="gb-after-notice" role="status" aria-live="polite"></p>
+          </section>
+          <section class="new-entries">
+            <div class="new-list-heading"><div><h2>차곡차곡 쌓인 마음</h2><small>이곳에 다녀간 사람들의 이야기</small></div><span class="new-badge">0개의 인사</span></div>
+            <div class="new-empty"><strong>첫 번째 인사를 기다리고 있어요</strong><p>아직 남겨진 인사가 없어요.<br>당신의 따뜻한 한 줄로 시작해 주세요.</p></div>
+            <nav class="new-pagination" aria-label="개선 시안 페이지"><button type="button" disabled>← 이전</button><span>1 / 1</span><button type="button" disabled>다음 →</button></nav>
+          </section>
+        </div>
+        <footer class="new-footer">작은 인사가 모여, 따뜻한 공간이 됩니다.</footer>
+      </div>
+    </section>
+  </div>
+  <script>
+    (() => {
+      const root = document.getElementById("guestbook-design-comparison");
+      for (const side of ["before", "after"]) {
+        const message = root.querySelector(`#gb-${side}-message`);
+        const count = root.querySelector(`#gb-${side}-count`);
+        const button = root.querySelector(`#gb-${side}-submit`);
+        const notice = root.querySelector(`#gb-${side}-notice`);
+        message.addEventListener("input", () => { count.textContent = message.value.length; });
+        button.addEventListener("click", () => { notice.textContent = "디자인 미리보기입니다. 입력한 내용은 서버에 저장하지 않습니다."; });
+      }
+      const settings = { radius:16, accent:"#365c48" };
+      const design = document.getElementById("gb-new-design");
+      const updateDesign = () => {
+        design.style.setProperty("--gb-green", settings.accent);
+        for (const element of design.querySelectorAll(".new-compose,.new-empty")) element.style.borderRadius = `${settings.radius}px`;
+      };
+      if (globalThis.Tweak) {
+        const tweak = new Tweak({ container:design, onChange:updateDesign });
+        tweak.addSlider(settings, "radius", {label:"카드 둥글기",min:4,max:24,step:2,unit:"px"});
+        tweak.addColorPicker(settings, "accent", {label:"강조색",reference:"--gb-green"});
+      }
+    })();
+  </script>
+</div>
