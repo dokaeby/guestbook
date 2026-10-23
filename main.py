@@ -14,6 +14,8 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
+from moderation import validate_text
+
 ROOT = Path(__file__).resolve().parent
 DB_PATH = ROOT / "data" / "guestbook.sqlite3"
 MAX_ENTRIES = 1000
@@ -31,7 +33,7 @@ class EntryIn(BaseModel):
     def no_null_character(cls, value: str):
         if "\x00" in value:
             raise ValueError("널 문자는 사용할 수 없습니다.")
-        return value
+        return validate_text(value)
 
 
 class EntryOut(BaseModel):

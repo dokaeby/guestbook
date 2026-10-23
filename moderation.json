@@ -1,0 +1,10 @@
+{
+  "profanity": {
+    "contains": ["씨발", "씨팔", "시팔", "개새끼", "개색기", "병신", "지랄", "좆", "씹새끼", "ㅅㅂ", "ㅆㅂ", "ㅂㅅ"],
+    "words": ["시발", "fuck", "fucking", "fucker", "shit", "bitch", "asshole", "cunt"]
+  },
+  "sexual": {
+    "contains": ["야동", "포르노", "섹스", "성기노출", "자위행위", "성매매", "강간", "성폭행", "몰카영상"],
+    "words": ["porn", "porno", "pornography", "sex", "nude", "nudes", "blowjob", "pussy", "cock", "dick"]
+  }
+}

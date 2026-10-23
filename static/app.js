@@ -54,7 +54,10 @@ async function api(url, options = {}) {
   try { data = await response.json(); }
   catch { throw new Error("서버 응답을 읽지 못했습니다. 잠시 후 다시 시도해 주세요."); }
   if (!response.ok) {
-    throw new Error(typeof data.detail === "string" ? data.detail : "이름과 내용을 길이에 맞게 입력해 주세요.");
+    const violation = Array.isArray(data.detail) && data.detail.find((item) =>
+      typeof item.msg === "string" && item.msg.includes("등록할 수 없습니다"));
+    throw new Error(violation ? violation.msg.replace(/^Value error, /, "") :
+      typeof data.detail === "string" ? data.detail : "이름과 내용을 길이에 맞게 입력해 주세요.");
   }
   return data;
 }
@@ -128,7 +131,14 @@ function emptyState(title, description) {
   heading.textContent = title;
   const text = document.createElement("p");
   text.textContent = description;
-  empty.append(heading, text);
+  const image = document.createElement("img");
+  image.src = "/static/images/flowers.jpg";
+  image.alt = "";
+  image.width = 160;
+  image.height = 160;
+  image.loading = "lazy";
+  image.className = "empty-art";
+  empty.append(image, heading, text);
   return empty;
 }
 

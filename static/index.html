@@ -21,13 +21,21 @@
 
   <main>
     <section class="intro" aria-labelledby="intro-title">
+      <div class="intro-copy">
       <span class="eyebrow">A LITTLE NOTE, A WARM HELLO</span>
       <h1 id="intro-title">다녀간 자리에<br>마음을 남겨요.</h1>
       <p>짧은 인사도, 오늘의 작은 이야기도 좋아요.<br>이곳에 당신의 한 줄을 보태 주세요.</p>
+      <span class="intro-caption">한 줄의 안부가 피어나는 작은 정원</span>
+      </div>
+      <figure class="garden-frame">
+        <img src="/static/images/garden.jpg" alt="꽃이 핀 정원에서 편지를 기다리는 초록 우편함" width="1152" height="768" fetchpriority="high">
+        <figcaption>당신의 이야기가 이곳에 꽃처럼 쌓이길.</figcaption>
+      </figure>
     </section>
 
     <div class="workspace">
       <section class="compose" aria-labelledby="write-title">
+        <div class="letter-art"><img src="/static/images/letter.jpg" alt="" width="480" height="480" loading="lazy"><span>A NOTE FOR YOU</span></div>
         <h2 id="write-title">반가운 인사 남기기</h2>
         <p class="section-description">당신의 한마디가 이곳을 따뜻하게 만들어요.</p>
         <form id="entry-form">
@@ -44,6 +52,7 @@
             <span class="button-arrow" aria-hidden="true">↗</span>
           </button>
           <p id="status" role="status" aria-live="polite" aria-atomic="true"></p>
+          <p class="policy-note">서로를 존중하는 말을 남겨 주세요.<br>비속어·욕설·성적인 표현은 등록이 제한됩니다.</p>
           <p class="form-note">개인정보는 적지 말아 주세요.<br>작성한 브라우저에서 내 글을 삭제할 수 있어요.</p>
         </form>
       </section>
@@ -56,6 +65,7 @@
           </div>
           <span id="total" class="badge">불러오는 중</span>
         </div>
+        <div class="garden-note"><img src="/static/images/flowers.jpg" alt="" width="80" height="80" loading="lazy"><p>마음을 담은 말 한마디,<br><strong>오늘도 반가워요.</strong></p></div>
         <div id="entry-list" aria-busy="true">
           <div class="empty loading-state">
             <span class="loading-dot" aria-hidden="true"></span>

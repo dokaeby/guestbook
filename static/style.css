@@ -116,9 +116,28 @@ footer a { flex-shrink: 0; padding: 8px 0; text-decoration: none; }
 footer a:hover { color: var(--green); text-decoration: underline; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* 기존 세이지 디자인에 정원과 편지 이미지를 더합니다. */
+.intro { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 40px; padding: 36px 0; }
+.intro-copy { min-width: 0; }
+.intro-caption { display: block; margin-top: 22px; color: var(--green); font-size: 12px; letter-spacing: .3px; }
+.garden-frame { position: relative; margin: 0; overflow: hidden; border-radius: 24px 24px 80px 24px; background: var(--sage); box-shadow: var(--shadow); }
+.garden-frame img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.garden-frame figcaption { position: absolute; bottom: 16px; left: 16px; right: 16px; width: fit-content; max-width: calc(100% - 32px); padding: 7px 12px; border-radius: 12px; background: var(--surface); color: var(--green); font-size: 12px; }
+.letter-art { position: relative; overflow: hidden; margin: -28px -28px 24px; border-radius: 16px 16px 0 0; background: var(--paper); }
+.letter-art img { display: block; width: 100%; height: 150px; object-fit: cover; object-position: center 48%; }
+.letter-art span { position: absolute; bottom: 12px; left: 20px; padding: 4px 8px; border-radius: 6px; background: var(--surface); color: var(--green); font-size: 10px; letter-spacing: 2px; }
+.policy-note { padding: 12px; margin: 16px 0 0; border-radius: 10px; background: var(--sage); color: var(--green); font-size: 12px; text-align: center; line-height: 1.8; }
+.garden-note { display: flex; align-items: center; gap: 18px; padding: 12px 20px; margin-bottom: 20px; border-radius: 16px; background: #f1efe7; }
+.garden-note img { flex-shrink: 0; width: 80px; height: 80px; object-fit: cover; border-radius: 50%; }
+.garden-note p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.9; }
+.garden-note strong { color: var(--green); font-weight: 600; }
+.empty-art { display: block; width: 160px; height: 160px; margin: 0 auto 22px; object-fit: cover; border-radius: 50%; }
+
 @media (max-width: 900px) {
   .workspace { grid-template-columns: 330px minmax(0, 1fr); gap: 24px; }
   .compose, .entry { padding: 22px; }
+  .letter-art { margin: -22px -22px 24px; }
+  .intro { gap: 24px; }
   .list-heading { align-items: start; flex-wrap: wrap; gap: 10px; }
 }
 @media (max-width: 760px) {
@@ -127,10 +146,16 @@ footer a:hover { color: var(--green); text-decoration: underline; }
   .brand { font-size: 17px; }
   .top-note { font-size: 12px; }
   .intro { padding: 28px 0 24px; }
+  .intro { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .intro-copy { padding: 0 4px; }
+  .intro-caption { margin-top: 14px; }
+  .garden-frame { border-radius: 18px 18px 56px 18px; }
+  .garden-frame img { max-height: 280px; object-position: center 58%; }
   h1 { font-size: 34px; letter-spacing: -1.4px; }
   .intro p { font-size: 14px; }
   .workspace { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-bottom: 40px; }
   .compose { padding: 24px; }
+  .letter-art { margin: -24px -24px 24px; }
   h2 { font-size: 20px; }
   .list-heading { flex-wrap: nowrap; align-items: center; margin-bottom: 18px; }
   .empty { padding: 40px 20px; }
@@ -142,6 +167,8 @@ footer a:hover { color: var(--green); text-decoration: underline; }
   .eyebrow { font-size: 10px; letter-spacing: .6px; }
   h1 { font-size: 32px; }
   .compose, .entry { padding: 20px; }
+  .letter-art { margin: -20px -20px 20px; }
+  .garden-frame figcaption { font-size: 11px; }
   .list-heading { align-items: start; flex-wrap: wrap; }
   .entry-top { flex-wrap: wrap; gap: 10px; }
   .entry-author { flex-basis: calc(100% - 50px); }
